@@ -17,6 +17,9 @@ case "$OSTYPE" in
     cygwin)
         p="WINDOWS"
         ;;
+    msys)
+        p="WINDOWS"
+        ;;
     darwin*)
         p="DARWIN"
         ;;

@@ -14,10 +14,7 @@ T=(BASE RELEASE RELWITHDEBINFO DEBUG)
 X=(_MACROS _SWITCHES "")
 
 case "$OSTYPE" in
-    cygwin)
-        p="WINDOWS"
-        ;;
-    msys)
+    cygwin|msys)
         p="WINDOWS"
         ;;
     darwin*)

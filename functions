@@ -161,3 +161,18 @@ function set_target {
     fi
     echo "${opts[*]}"
 }
+
+apply_patch()
+{
+    local patch="$1"
+    local path="$2"
+
+    # Fix paths for windows
+    if [[ "$OSTYPE" == "cygwin" || "$OSTYPE" == "msys" ]] ; then
+        patch="$(cygpath -m $patch)"
+        path="$(cygpath -m $path)"
+    fi
+
+    echo "Applying $patch..."
+    git apply --check --reverse --directory="$path" "$patch" || git apply --directory="$path" "$patch"
+}
